@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*::-webkit-scrollbar {
+	display: none;
+}
+
+* {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+#root {
+	@apply transition-colors duration-500;
+}
