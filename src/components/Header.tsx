@@ -9,7 +9,7 @@ type Props = {};
 const Header = (props: Props) => {
 	const { openMenu } = useStore();
 	return (
-		<div className="px-8 py-4 flex justify-between items-center border-b border-primary-500/30">
+		<div className="sticky top-0 px-8 py-4 flex justify-between items-center border-b border-primary-500/30">
 			<div>
 				<div className="flex md:hidden items-center ">
 					<img
