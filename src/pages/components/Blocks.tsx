@@ -10,12 +10,13 @@ type Props = {};
 
 const Blocks = (props: Props) => {
 	const [blocks, setBlocks] = useState<BlockType[]>([
-		{ id: 1, label: '332222' },
+		{ id: 1, label: '332222', date: Date.now() },
 	]);
 	const addBlock = () => {
-		const newBlock = {
+		const newBlock: BlockType = {
 			id: Math.random(),
 			label: (Math.random() * 100000).toFixed(0).toString(),
+			date: Date.now(),
 		};
 
 		setBlocks((prev) => [newBlock, ...prev].slice(0, 5));
@@ -27,7 +28,7 @@ const Blocks = (props: Props) => {
 		};
 	}, []);
 	return (
-		<div>
+		<div className="w-full">
 			<Title>Blocks</Title>
 
 			<Card>

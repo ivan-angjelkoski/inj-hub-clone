@@ -59,8 +59,8 @@ const Dashboard = (props: Props) => {
 						</div>
 					</Card>
 				</div>
-				<div className="grid gap-8 grid-cols-1 lg:grid-cols-3">
-					<div className="col-span-2">
+				<div className="grid gap-8 grid-cols-1 lg:grid-cols-3 ">
+					<div className="lg:col-span-2">
 						<Overview />
 					</div>
 					<Blocks />

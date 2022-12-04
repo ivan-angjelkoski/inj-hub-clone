@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 export type BlockType = {
 	id: number;
 	label: string;
-	date?: string;
+	date?: number;
 };
 
 type Props = {
@@ -12,6 +12,18 @@ type Props = {
 };
 
 const Block = ({ block }: Props) => {
+	const [seconds, setSeconds] = useState<number>(1);
+	useEffect(() => {
+		const timer = setInterval(() => {
+			const difference = parseInt(
+				((Date.now() - block.date!) / 1000).toFixed(0)
+			);
+			setSeconds(difference);
+		}, 1000);
+		return () => {
+			clearInterval(timer);
+		};
+	}, []);
 	return (
 		<motion.div
 			layout
@@ -19,7 +31,7 @@ const Block = ({ block }: Props) => {
 		>
 			<div>
 				<h3 className="tracking-wider">#{block?.label ?? '334455'}</h3>
-				<p className="text-xs text-gray-400">1 seconds ago</p>
+				<p className="text-xs text-gray-400">{seconds} seconds ago</p>
 			</div>
 			<div className="flex mt-3">
 				<img
