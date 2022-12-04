@@ -58,7 +58,7 @@ const Chart = ({ data }: Props) => {
 					<Tooltip
 						content={(props) => <CustomTooltip tooltip={props} />}
 						// cursor={false}
-						contentStyle={{ boxShadow: 'none', outline: 'none' }}
+						// contentStyle={{ boxShadow: 'none', outline: 'none' }}
 					/>
 				</AreaChart>
 			</ResponsiveContainer>
@@ -66,11 +66,7 @@ const Chart = ({ data }: Props) => {
 	);
 };
 
-const CustomTooltip = ({
-	tooltip,
-}: {
-	tooltip: TooltipProps<ValueType, NameType>;
-}) => {
+const CustomTooltip = ({ tooltip }: { tooltip: any }) => {
 	if (tooltip.payload?.length == 0) {
 		return <div tabIndex={-1}></div>;
 	} else {
@@ -79,7 +75,7 @@ const CustomTooltip = ({
 				className="bg-gray-500/10 rounded-2xl p-2"
 				tabIndex={-1}
 			>
-				<h1>${tooltip.payload[0].value.toFixed(2) ?? '0'}</h1>
+				<h1>$ {tooltip.payload[0].value.toFixed(2)}</h1>
 			</div>
 		);
 	}
